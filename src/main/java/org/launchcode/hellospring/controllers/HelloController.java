@@ -28,6 +28,13 @@ public class HelloController
     public String helloForm(){
         String html = "<form method='post'>" +
                 "<input type='text' name='name' />" +
+                "<select name='select'> " +
+                "  <option value='Привет '>Russian</option> " +
+                "  <option value='Hello ' selected>English</option>" +
+                "  <option value='Hallo '>German</option>" +
+                "  <option value='Bonjour '>French</option>" +                "  <option value=\"ger\">ger</option>\n" +
+                "  <option value='Hola '>Spanish</option>" +
+                "</select>"+
                 "<input type='submit' value='Greet Me!'/>" +
                 "</form>";
         return html;
@@ -37,8 +44,8 @@ public class HelloController
     @ResponseBody
     public String helloPost(HttpServletRequest request){
         String name = request.getParameter("name");
-
-        return "Hello " + name;
+        String greeting = request.getParameter("select");
+        return greeting + name;
     }
 
     @RequestMapping(value = "goodbye")
