@@ -1,16 +1,24 @@
 package org.launchcode.hellospring.controllers;
 
 
-import org.springframework.boot
-import org.springframework.web.servlet.mvc.Controller;
 
-@Controller
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+
+@org.springframework.stereotype.Controller
 public class HelloController
 {
-    @RequestMapping
+    @RequestMapping(value = "")
+    @ResponseBody
     public String index()
     {
         return "Hello World!";
     }
-
+    @RequestMapping(value = "Goodbye")
+    @ResponseBody
+    public String goodbye()
+    {
+        return "Goodbye";
+    }
 }
